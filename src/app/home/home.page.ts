@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Browser } from '@capacitor/browser';
+import { BrowserPlugin } from '@capacitor/browser/dist/esm/definitions';
+
 
 @Component({
   selector: 'app-home',
