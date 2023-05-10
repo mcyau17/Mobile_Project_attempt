@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { BrowserPlugin } from '@capacitor/browser/dist/esm/definitions';
-
+import { waitForAsync } from '@angular/core/testing';
+import { Browser } from '@capacitor/browser';
+import { asyncScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,3 +13,9 @@ stories:any[]=[];
   constructor() {}
   
 }
+
+async function openBrowser() {
+  await Browser.open({ url: 'http://capacitorjs.com/' });
+}
+
+
