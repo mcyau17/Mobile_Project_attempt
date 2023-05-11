@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Horror Films 
+      <!--Buttons for Moving between pages-->
+      <ion-button (click)="openComedy()">Comedy</ion-button>
+      <ion-button (click)="openRomance()">Romance</ion-button>
+      <ion-button (click)="openWar()">War</ion-button>
+<!--Opens the API used for the page-->
+      <ion-button (click)="openBrowser()">Comedy Api</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--Main body-->
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+<!--Displays all Movies from the API-->
+    <ion-card *ngFor="let movie of movieData">
+      <img src="{{movie.Poster}}">
+      <ion-card-header>
+      <ion-card-subtitle>{{movie.Title}}</ion-card-subtitle>
+      <ion-card-title>{{movie.Year}}</ion-card-title>
+      </ion-card-header>
+      </ion-card>
+
+      <!--Allows the user to rate movies-->
+      <label class="rating-label">
+        <strong>Rating</strong>
+        <input
+          class="rating"
+          max="5"
+          oninput="this.style.setProperty('--value', this.value)"
+          step="0.5"
+          type="range"
+          value="1">
+      </label>
+
+  </div>
+</ion-content>
+
